@@ -1,13 +1,13 @@
---Создание контейнера базы данных
+--РЎРѕР·РґР°РЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 create database JEWERLYBD
 go
 
---Активация контейнера базы данных
+--РђРєС‚РёРІР°С†РёСЏ РєРѕРЅС‚РµР№РЅРµСЂР° Р±Р°Р·С‹ РґР°РЅРЅС‹С…
 use JEWERLYBD
 go
 
 
- -- Создание доменов
+ -- РЎРѕР·РґР°РЅРёРµ РґРѕРјРµРЅРѕРІ
 create type sAddress from varchar(40)
 go
 create type code from varchar(13)
@@ -15,7 +15,7 @@ go
 create type providerJ from varchar(20)
 go
 
--- таблица с пользователями
+-- С‚Р°Р±Р»РёС†Р° СЃ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРјРё
 CREATE TABLE UserData
 (
 	UserLogin VARCHAR(20) PRIMARY KEY,
@@ -25,7 +25,7 @@ CREATE TABLE UserData
 
 Select * from UserData
 
---блок создания родительских таблиц
+--Р±Р»РѕРє СЃРѕР·РґР°РЅРёСЏ СЂРѕРґРёС‚РµР»СЊСЃРєРёС… С‚Р°Р±Р»РёС†
 
 create table Countries(country_code smallint primary key,
 country_name sAddress not NULL UNIQUE)
@@ -74,7 +74,7 @@ go
 
 select * from ProviderName
 
--- блок создания родительско-дочерних таблиц
+-- Р±Р»РѕРє СЃРѕР·РґР°РЅРёСЏ СЂРѕРґРёС‚РµР»СЊСЃРєРѕ-РґРѕС‡РµСЂРЅРёС… С‚Р°Р±Р»РёС†
 
 create table Cheque( number_in_order smallint primary key,
 date_and_time_of_sale DATETIME,
@@ -89,7 +89,7 @@ go
 
 select * from Cheque
 
---блок создания дочерних таблиц
+--Р±Р»РѕРє СЃРѕР·РґР°РЅРёСЏ РґРѕС‡РµСЂРЅРёС… С‚Р°Р±Р»РёС†
 
 create table TaxInvoice(tax_invoice_number int not NULL,
 delivery_date date not NULL,
@@ -115,40 +115,40 @@ go
 
 select * from ProductProvider
 
--- Блок ввода информации в таблицы(заполнение)
+-- Р‘Р»РѕРє РІРІРѕРґР° РёРЅС„РѕСЂРјР°С†РёРё РІ С‚Р°Р±Р»РёС†С‹(Р·Р°РїРѕР»РЅРµРЅРёРµ)
 
 EXEC CreateUser @userLogin = 'admin', @userPassword = 'a159753', @userRole = 'admin';
 EXEC CreateUser @userLogin = 'user1', @userPassword = 'user11', @userRole = 'user';
 EXEC CreateUser @userLogin = 'user2', @userPassword = 'user12', @userRole = 'user';
 
 insert into Countries(country_code,country_name)
-values (1,'Молдова'),
-(2,'Украина'),
-(3,'Россия'),
-(4,'Италия'),
-(5,'Турция'),
-(6,'Испания'),
-(7,'Франция'),
-(8,'Румыния'),
-(9,'Польша'),
-(10,'Словакия'),
-(11,'Великобритания'),
-(12,'Чехия')
+values (1,'РњРѕР»РґРѕРІР°'),
+(2,'РЈРєСЂР°РёРЅР°'),
+(3,'Р РѕСЃСЃРёСЏ'),
+(4,'РС‚Р°Р»РёСЏ'),
+(5,'РўСѓСЂС†РёСЏ'),
+(6,'РСЃРїР°РЅРёСЏ'),
+(7,'Р¤СЂР°РЅС†РёСЏ'),
+(8,'Р СѓРјС‹РЅРёСЏ'),
+(9,'РџРѕР»СЊС€Р°'),
+(10,'РЎР»РѕРІР°РєРёСЏ'),
+(11,'Р’РµР»РёРєРѕР±СЂРёС‚Р°РЅРёСЏ'),
+(12,'Р§РµС…РёСЏ')
 go
 
 
 
 insert into StoreAddress(store_address_code,store_city,store_street)
-values (1,'Кишинёв','Узинелор 12/6'),
-(2,'Орхей','Новая 12/6'),
-(3,'Кишинёв','Василе Лупу 8'),
-(4,'Кишинёв','Константин Негруззи 2'),
-(5,'Кайсери','Бозанти 22/4'),
-(6,'Кишинёв','Штефан Чел Маре 89'),
-(7,'Париж','Шанз-Элизе 1'),
-(8,'Кишинёв','Измаил 26'),
-(9,'Братислава','Штура 16'),
-(10,'Кишинёв','Узинелор 22/9')
+values (1,'РљРёС€РёРЅС‘РІ','РЈР·РёРЅРµР»РѕСЂ 12/6'),
+(2,'РћСЂС…РµР№','РќРѕРІР°СЏ 12/6'),
+(3,'РљРёС€РёРЅС‘РІ','Р’Р°СЃРёР»Рµ Р›СѓРїСѓ 8'),
+(4,'РљРёС€РёРЅС‘РІ','РљРѕРЅСЃС‚Р°РЅС‚РёРЅ РќРµРіСЂСѓР·Р·Рё 2'),
+(5,'РљР°Р№СЃРµСЂРё','Р‘РѕР·Р°РЅС‚Рё 22/4'),
+(6,'РљРёС€РёРЅС‘РІ','РЁС‚РµС„Р°РЅ Р§РµР» РњР°СЂРµ 89'),
+(7,'РџР°СЂРёР¶','РЁР°РЅР·-Р­Р»РёР·Рµ 1'),
+(8,'РљРёС€РёРЅС‘РІ','РР·РјР°РёР» 26'),
+(9,'Р‘СЂР°С‚РёСЃР»Р°РІР°','РЁС‚СѓСЂР° 16'),
+(10,'РљРёС€РёРЅС‘РІ','РЈР·РёРЅРµР»РѕСЂ 22/9')
 go
 
 
@@ -166,16 +166,16 @@ values (1,10),
 go
 
 insert into ProductType(product_type_code,product_type_name)
-values (1,'Кольцо'),
-(2,'Серёжки'),
-(3,'Цепочка'),
-(4,'Браслет'),
-(5,'Колье'),
-(6,'Бусы'),
-(7,'Брошь'),
-(8,'Локет'),
-(9,'Запонки'),
-(10,'Подвеска')
+values (1,'РљРѕР»СЊС†Рѕ'),
+(2,'РЎРµСЂС‘Р¶РєРё'),
+(3,'Р¦РµРїРѕС‡РєР°'),
+(4,'Р‘СЂР°СЃР»РµС‚'),
+(5,'РљРѕР»СЊРµ'),
+(6,'Р‘СѓСЃС‹'),
+(7,'Р‘СЂРѕС€СЊ'),
+(8,'Р›РѕРєРµС‚'),
+(9,'Р—Р°РїРѕРЅРєРё'),
+(10,'РџРѕРґРІРµСЃРєР°')
 go
 
 insert into ProductSample(sample_code,sample_name)
@@ -194,16 +194,16 @@ go
 
 
 insert into ProviderAddress(provider_address_code,provider_city,provider_street)
-values (1,'Кишинёв','Бульвар Штефан Чел Маре 128'),
-(2,'Кишинёв','Бульвар Штефан Чел Маре 68'),
-(3,'Кишинёв','Армянская 51А'),
-(4,'Кишинёв','Армянская 42'),
-(5,'Кишинёв','Бульвар Штефан Чел Маре 51'),
-(6,'Кишинёв','Измаил 15'),
-(7,'Кишинёв','Гренобле 21'),
-(8,'Кишинёв','Узинелор 16'),
-(9,'Кишинёв','Алексей Матеевич 59'),
-(10,'Кишинёв','Узинелор 99')
+values (1,'РљРёС€РёРЅС‘РІ','Р‘СѓР»СЊРІР°СЂ РЁС‚РµС„Р°РЅ Р§РµР» РњР°СЂРµ 128'),
+(2,'РљРёС€РёРЅС‘РІ','Р‘СѓР»СЊРІР°СЂ РЁС‚РµС„Р°РЅ Р§РµР» РњР°СЂРµ 68'),
+(3,'РљРёС€РёРЅС‘РІ','РђСЂРјСЏРЅСЃРєР°СЏ 51Рђ'),
+(4,'РљРёС€РёРЅС‘РІ','РђСЂРјСЏРЅСЃРєР°СЏ 42'),
+(5,'РљРёС€РёРЅС‘РІ','Р‘СѓР»СЊРІР°СЂ РЁС‚РµС„Р°РЅ Р§РµР» РњР°СЂРµ 51'),
+(6,'РљРёС€РёРЅС‘РІ','РР·РјР°РёР» 15'),
+(7,'РљРёС€РёРЅС‘РІ','Р“СЂРµРЅРѕР±Р»Рµ 21'),
+(8,'РљРёС€РёРЅС‘РІ','РЈР·РёРЅРµР»РѕСЂ 16'),
+(9,'РљРёС€РёРЅС‘РІ','РђР»РµРєСЃРµР№ РњР°С‚РµРµРІРёС‡ 59'),
+(10,'РљРёС€РёРЅС‘РІ','РЈР·РёРЅРµР»РѕСЂ 99')
 go
 
 insert into ProviderName(provider_code,provider_name)
@@ -263,79 +263,79 @@ go
 
 CREATE VIEW CountriesView AS
 SELECT
-country_name AS 'Название страны',
+country_name AS 'РќР°Р·РІР°РЅРёРµ СЃС‚СЂР°РЅС‹',
 country_code as 'PRIVATE'
 FROM Countries;
 
 
 CREATE VIEW StoreAddressView AS
 SELECT 
-store_city AS 'Город', 
-store_street AS 'Улица',
+store_city AS 'Р“РѕСЂРѕРґ', 
+store_street AS 'РЈР»РёС†Р°',
 store_address_code as 'PRIVATE'
 FROM StoreAddress;
 
 CREATE VIEW VATView AS
 SELECT 
-vat_procent AS 'Процент НДС',
+vat_procent AS 'РџСЂРѕС†РµРЅС‚ РќР”РЎ',
 vat_code as 'PRIVATE'
 FROM VAT;
 
 CREATE VIEW ProductTypeView AS
 SELECT 
-product_type_name AS 'Тип продукта',
+product_type_name AS 'РўРёРї РїСЂРѕРґСѓРєС‚Р°',
 product_type_code as 'PRIVATE'
 FROM ProductType;
 
 CREATE VIEW ProductSampleView AS
 SELECT 
-sample_name AS 'Проба',
+sample_name AS 'РџСЂРѕР±Р°',
 sample_code as 'PRIVATE'
 FROM ProductSample;
 
 
 CREATE VIEW ProviderAddressView AS
 SELECT 
-provider_city AS 'Город', provider_street AS 'Улица',
+provider_city AS 'Р“РѕСЂРѕРґ', provider_street AS 'РЈР»РёС†Р°',
 provider_address_code as 'PRIVATE'
 FROM ProviderAddress;
 
 CREATE VIEW ProviderNameView AS
 SELECT 
-provider_name AS 'Название поставщика',
+provider_name AS 'РќР°Р·РІР°РЅРёРµ РїРѕСЃС‚Р°РІС‰РёРєР°',
 provider_code as 'PRIVATE'
 FROM ProviderName;
 
 
 
--- Представление для ProductProvider
+-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР»СЏ ProductProvider
 CREATE VIEW ProductProviderView AS
 SELECT 
-	provider_name as 'Название поставщика',
-    fiscal_code AS 'Фискальный код',
-    country_name AS 'Страна',
-    provider_city AS 'Город',
-	provider_street  AS 'Улица',
-    phone_number AS 'Номер телефона',
-    payment_account AS 'Платежный счет'
+	provider_name as 'РќР°Р·РІР°РЅРёРµ РїРѕСЃС‚Р°РІС‰РёРєР°',
+    fiscal_code AS 'Р¤РёСЃРєР°Р»СЊРЅС‹Р№ РєРѕРґ',
+    country_name AS 'РЎС‚СЂР°РЅР°',
+    provider_city AS 'Р“РѕСЂРѕРґ',
+	provider_street  AS 'РЈР»РёС†Р°',
+    phone_number AS 'РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°',
+    payment_account AS 'РџР»Р°С‚РµР¶РЅС‹Р№ СЃС‡РµС‚'
 FROM 
     ProductProviderViewReport;
 	go
 
-	-- Представление для TaxInvoice	
+	-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР»СЏ TaxInvoice	
 CREATE VIEW TaxInvoiceView AS
 SELECT 
-    tax_invoice_number AS 'Номер накладной',
-    delivery_date AS 'Дата поставки',
-    provider_name AS 'Имя поставщика',
-    product_type_name AS 'Тип',
-    sample_name  AS 'Проба',
-    quantity AS 'Количество',
-    weight_grams AS 'Вес',
-    price_per_gramm AS 'Цена за грамм',
-    vat_procent AS 'НДС',
-	price_no_NDS AS 'Цена(Без НДС)',
-	price_with_NDS AS 'Цена(С НДС)'
+    tax_invoice_number AS 'РќРѕРјРµСЂ РЅР°РєР»Р°РґРЅРѕР№',
+    delivery_date AS 'Р”Р°С‚Р° РїРѕСЃС‚Р°РІРєРё',
+    provider_name AS 'РРјСЏ РїРѕСЃС‚Р°РІС‰РёРєР°',
+    product_type_name AS 'РўРёРї',
+    sample_name  AS 'РџСЂРѕР±Р°',
+    quantity AS 'РљРѕР»РёС‡РµСЃС‚РІРѕ',
+    weight_grams AS 'Р’РµСЃ',
+    price_per_gramm AS 'Р¦РµРЅР° Р·Р° РіСЂР°РјРј',
+    vat_procent AS 'РќР”РЎ',
+	price_no_NDS AS 'Р¦РµРЅР°(Р‘РµР· РќР”РЎ)',
+	price_with_NDS AS 'Р¦РµРЅР°(РЎ РќР”РЎ)'
 FROM 
     TaxInvoiceReportView;
 	go
@@ -343,40 +343,40 @@ FROM
 	SELECT * FROM TaxInvoiceView
 	
 	
-	-- Представление для Cheque
+	-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР»СЏ Cheque
 CREATE VIEW ChequeView AS
 SELECT 
-    date_and_time_of_sale AS 'Дата',
-    country_name AS 'Страна',
-    store_city AS 'Город',
-    store_street AS 'Улица',
-    product_type_name AS 'Тип',
-    weight_grams AS 'Вес',
-    price_per_gram AS 'Цена за грамм',
-    discount_percentage AS 'Процент скидки',
-    vat_procent AS 'НДС',
-    -- Цена без НДС и без скидки
-    ROUND(price_per_gram * weight_grams, 2) AS 'Цена(Без НДС)',
+    date_and_time_of_sale AS 'Р”Р°С‚Р°',
+    country_name AS 'РЎС‚СЂР°РЅР°',
+    store_city AS 'Р“РѕСЂРѕРґ',
+    store_street AS 'РЈР»РёС†Р°',
+    product_type_name AS 'РўРёРї',
+    weight_grams AS 'Р’РµСЃ',
+    price_per_gram AS 'Р¦РµРЅР° Р·Р° РіСЂР°РјРј',
+    discount_percentage AS 'РџСЂРѕС†РµРЅС‚ СЃРєРёРґРєРё',
+    vat_procent AS 'РќР”РЎ',
+    -- Р¦РµРЅР° Р±РµР· РќР”РЎ Рё Р±РµР· СЃРєРёРґРєРё
+    ROUND(price_per_gram * weight_grams, 2) AS 'Р¦РµРЅР°(Р‘РµР· РќР”РЎ)',
     
-    -- Цена со скидкой, но без НДС
+    -- Р¦РµРЅР° СЃРѕ СЃРєРёРґРєРѕР№, РЅРѕ Р±РµР· РќР”РЎ
     ROUND(price_per_gram * weight_grams - 
-          (CASE WHEN discount_percentage = 0 THEN 0 ELSE (price_per_gram * weight_grams * discount_percentage / 100) END), 2) AS 'Цена со скидкой(Без НДС)',
+          (CASE WHEN discount_percentage = 0 THEN 0 ELSE (price_per_gram * weight_grams * discount_percentage / 100) END), 2) AS 'Р¦РµРЅР° СЃРѕ СЃРєРёРґРєРѕР№(Р‘РµР· РќР”РЎ)',
     
-    -- Цена с НДС, но без скидки
+    -- Р¦РµРЅР° СЃ РќР”РЎ, РЅРѕ Р±РµР· СЃРєРёРґРєРё
     ROUND(price_per_gram * weight_grams +
-          (price_per_gram * weight_grams * vat_procent / 100), 2) AS 'Цена(С НДС)',
+          (price_per_gram * weight_grams * vat_procent / 100), 2) AS 'Р¦РµРЅР°(РЎ РќР”РЎ)',
     
-    -- Цена со скидкой и НДС
+    -- Р¦РµРЅР° СЃРѕ СЃРєРёРґРєРѕР№ Рё РќР”РЎ
     ROUND((price_per_gram * weight_grams +
           (price_per_gram * weight_grams * vat_procent / 100)) - 
-          (CASE WHEN discount_percentage = 0 THEN 0 ELSE (price_per_gram * weight_grams * discount_percentage / 100) END), 2) AS 'Цена со скидкой и НДС',
+          (CASE WHEN discount_percentage = 0 THEN 0 ELSE (price_per_gram * weight_grams * discount_percentage / 100) END), 2) AS 'Р¦РµРЅР° СЃРѕ СЃРєРёРґРєРѕР№ Рё РќР”РЎ',
           
     ChequeReportView.PRIVATE AS 'PRIVATE'
 FROM ChequeReportView
 
 	SELECT * FROM ChequeView
 	
-	-- Блок создания индексов, для самых используемых полей
+	-- Р‘Р»РѕРє СЃРѕР·РґР°РЅРёСЏ РёРЅРґРµРєСЃРѕРІ, РґР»СЏ СЃР°РјС‹С… РёСЃРїРѕР»СЊР·СѓРµРјС‹С… РїРѕР»РµР№
 create index product_type_name_idx on ProductType(product_type_name)
 go
 create index sample_name_idx on ProductSample(sample_name)
@@ -405,7 +405,7 @@ JOIN
 	
 
 	select * from ProductProviderViewReport
-	-- Представление для TaxInvoice
+	-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР»СЏ TaxInvoice
 
 
 CREATE VIEW TaxInvoiceReportView AS
@@ -435,7 +435,7 @@ JOIN
 
 	SELECT * FROM TaxInvoiceReportView
 	
-	-- Представление для Cheque
+	-- РџСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РґР»СЏ Cheque
 CREATE VIEW ChequeReportView AS
 SELECT 
     Cheque.date_and_time_of_sale,
@@ -447,18 +447,18 @@ SELECT
     Cheque.price_per_gram,
     Cheque.discount_percentage,
     VAT.vat_procent,
-	    -- Цена без НДС и без скидки
+	    -- Р¦РµРЅР° Р±РµР· РќР”РЎ Рё Р±РµР· СЃРєРёРґРєРё
     ROUND(price_per_gram * weight_grams, 2) AS 'price_no_NDS',
     
-    -- Цена со скидкой, но без НДС
+    -- Р¦РµРЅР° СЃРѕ СЃРєРёРґРєРѕР№, РЅРѕ Р±РµР· РќР”РЎ
     ROUND(price_per_gram * weight_grams - 
           (CASE WHEN discount_percentage = 0 THEN 0 ELSE (price_per_gram * weight_grams * discount_percentage / 100) END), 2) AS 'price_discount_no_NDS',
     
-    -- Цена с НДС, но без скидки
+    -- Р¦РµРЅР° СЃ РќР”РЎ, РЅРѕ Р±РµР· СЃРєРёРґРєРё
     ROUND(price_per_gram * weight_grams +
           (price_per_gram * weight_grams * vat_procent / 100), 2) AS 'price_with_NDS',
     
-    -- Цена со скидкой и НДС
+    -- Р¦РµРЅР° СЃРѕ СЃРєРёРґРєРѕР№ Рё РќР”РЎ
     ROUND((price_per_gram * weight_grams +
           (price_per_gram * weight_grams * vat_procent / 100)) - 
           (CASE WHEN discount_percentage = 0 THEN 0 ELSE (price_per_gram * weight_grams * discount_percentage / 100) END), 2) AS 'price_discount_with_NDS',        
@@ -480,11 +480,11 @@ JOIN
 	
 CREATE VIEW InfoForClientView AS
 SELECT 
-    provider_name AS 'Фирма',
-    product_type_name AS 'Тип',
-    sample_name  AS 'Проба',
-    weight_grams AS 'Вес',
-    ROUND(price_per_gramm*weight_grams+(price_per_gramm*weight_grams * vat_procent / 100),2) AS 'Цена'
+    provider_name AS 'Р¤РёСЂРјР°',
+    product_type_name AS 'РўРёРї',
+    sample_name  AS 'РџСЂРѕР±Р°',
+    weight_grams AS 'Р’РµСЃ',
+    ROUND(price_per_gramm*weight_grams+(price_per_gramm*weight_grams * vat_procent / 100),2) AS 'Р¦РµРЅР°'
 FROM 
     TaxInvoiceReportView
 	go
@@ -493,8 +493,8 @@ FROM
 
 	CREATE VIEW UserDataView AS
 SELECT 
-	UserLogin AS 'Логин',
-	UserRole AS 'Роль'
+	UserLogin AS 'Р›РѕРіРёРЅ',
+	UserRole AS 'Р РѕР»СЊ'
 FROM 
     UserData
 	go
@@ -503,7 +503,7 @@ FROM
 
 
 
--- Запрос находит сумму всех продаж по стране магазина и позже группирует их по стране магазина:
+-- Р—Р°РїСЂРѕСЃ РЅР°С…РѕРґРёС‚ СЃСѓРјРјСѓ РІСЃРµС… РїСЂРѕРґР°Р¶ РїРѕ СЃС‚СЂР°РЅРµ РјР°РіР°Р·РёРЅР° Рё РїРѕР·Р¶Рµ РіСЂСѓРїРїРёСЂСѓРµС‚ РёС… РїРѕ СЃС‚СЂР°РЅРµ РјР°РіР°Р·РёРЅР°:
 SELECT Countries.country_name, SUM(weight_grams * price_per_gram * (100 + VAT.vat_procent)/100) AS sales
 FROM Cheque
 INNER JOIN Countries ON 
@@ -514,7 +514,7 @@ GROUP BY Countries.country_name
 go
 
 
--- Транзакции и процедуры
+-- РўСЂР°РЅР·Р°РєС†РёРё Рё РїСЂРѕС†РµРґСѓСЂС‹
 
 
 CREATE FUNCTION dbo.GenerateCountryID()
@@ -540,7 +540,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM Countries WHERE country_name = @country_name)
         BEGIN
-            RAISERROR('Такая страна уже существует.', 16, 1);
+            RAISERROR('РўР°РєР°СЏ СЃС‚СЂР°РЅР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -593,7 +593,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM StoreAddress WHERE store_city = @store_city AND store_street = @store_street)
         BEGIN
-            RAISERROR('Такой адрес магазина уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ Р°РґСЂРµСЃ РјР°РіР°Р·РёРЅР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -645,7 +645,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM VAT WHERE vat_procent = @vat_procent)
         BEGIN
-            RAISERROR('Такой НДС уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ РќР”РЎ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -697,7 +697,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM ProductType WHERE product_type_name = @product_type_name)
         BEGIN
-            RAISERROR('Такой тип продукта уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ С‚РёРї РїСЂРѕРґСѓРєС‚Р° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -749,7 +749,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM ProductSample WHERE sample_name = @sample_name)
         BEGIN
-            RAISERROR('Такая проба уже существует.', 16, 1);
+            RAISERROR('РўР°РєР°СЏ РїСЂРѕР±Р° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -802,7 +802,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM ProviderAddress WHERE provider_city = @provider_city AND provider_street = @provider_street)
         BEGIN
-            RAISERROR('Такой адрес поставщика уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ Р°РґСЂРµСЃ РїРѕСЃС‚Р°РІС‰РёРєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -856,7 +856,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM ProviderName WHERE provider_name = @provider_name)
         BEGIN
-            RAISERROR('Такое имя поставщика уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕРµ РёРјСЏ РїРѕСЃС‚Р°РІС‰РёРєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -956,7 +956,7 @@ BEGIN
     BEGIN TRY
 	        IF EXISTS (SELECT 1 FROM TaxInvoice WHERE tax_invoice_number = @tax_invoice_number AND product_type_code = @product_type_code)
         BEGIN
-            RAISERROR('В этой накладной уже есть этот тип продукта.', 16, 1);
+            RAISERROR('Р’ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ РµСЃС‚СЊ СЌС‚РѕС‚ С‚РёРї РїСЂРѕРґСѓРєС‚Р°.', 16, 1);
         END
         ELSE
 		BEGIN
@@ -997,19 +997,19 @@ BEGIN
     BEGIN TRY
 		IF EXISTS (SELECT 1 FROM ProductProvider WHERE fiscal_code = @fiscal_code)
         BEGIN
-            RAISERROR('Такой фискальный код уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ С„РёСЃРєР°Р»СЊРЅС‹Р№ РєРѕРґ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
 		ELSE IF EXISTS (SELECT 1 FROM ProductProvider WHERE provider_code = @provider_code)
         BEGIN
-            RAISERROR('Такой поставщик уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ РїРѕСЃС‚Р°РІС‰РёРє СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
 		ELSE IF EXISTS (SELECT 1 FROM ProductProvider WHERE phone_number = @phone_number)
         BEGIN
-            RAISERROR('Такой номер телефона уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
 		ELSE IF EXISTS (SELECT 1 FROM ProductProvider WHERE payment_account = @payment_account)
         BEGIN
-            RAISERROR('Такой платёжный счёт уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ РїР»Р°С‚С‘Р¶РЅС‹Р№ СЃС‡С‘С‚ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
 
         ELSE
@@ -1037,7 +1037,7 @@ BEGIN CATCH
 	END CATCH
 END
 GO
--- Удаление
+-- РЈРґР°Р»РµРЅРёРµ
 
 
 CREATE PROCEDURE DeleteCountry
@@ -1051,7 +1051,7 @@ BEGIN
 	                IF EXISTS (SELECT 1 FROM Cheque WHERE country_code = @country_code) OR
            EXISTS (SELECT 1 FROM ProductProvider WHERE country_code = @country_code)
         BEGIN
-            RAISERROR('Удаление невозможно! Поле используется в других таблицах.', 16, 1);
+            RAISERROR('РЈРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ! РџРѕР»Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РґСЂСѓРіРёС… С‚Р°Р±Р»РёС†Р°С….', 16, 1);
         END
 
         DELETE FROM Countries
@@ -1088,7 +1088,7 @@ BEGIN
 	
 		        IF EXISTS (SELECT 1 FROM Cheque WHERE store_adress_code = @store_address_code)
         BEGIN
-            RAISERROR('Удаление невозможно! Поле используется в других таблицах.', 16, 1);
+            RAISERROR('РЈРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ! РџРѕР»Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РґСЂСѓРіРёС… С‚Р°Р±Р»РёС†Р°С….', 16, 1);
         END
 
         DELETE FROM StoreAddress
@@ -1127,7 +1127,7 @@ BEGIN
 		        IF EXISTS (SELECT 1 FROM Cheque WHERE vat_code = @vat_code)OR
            EXISTS (SELECT 1 FROM TaxInvoice WHERE vat_code = @vat_code)
         BEGIN
-            RAISERROR('Удаление невозможно! Поле используется в других таблицах.', 16, 1);
+            RAISERROR('РЈРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ! РџРѕР»Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РґСЂСѓРіРёС… С‚Р°Р±Р»РёС†Р°С….', 16, 1);
         END
 
         DELETE FROM VAT
@@ -1166,7 +1166,7 @@ BEGIN
 		   IF EXISTS (SELECT 1 FROM Cheque WHERE product_type_code = @product_type_code)OR
            EXISTS (SELECT 1 FROM TaxInvoice WHERE product_type_code = @product_type_code)
         BEGIN
-            RAISERROR('Удаление невозможно! Поле используется в других таблицах.', 16, 1);
+            RAISERROR('РЈРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ! РџРѕР»Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РґСЂСѓРіРёС… С‚Р°Р±Р»РёС†Р°С….', 16, 1);
         END
         DELETE FROM ProductType
         WHERE product_type_code = @product_type_code;
@@ -1202,7 +1202,7 @@ BEGIN
 	
 			        IF EXISTS (SELECT 1 FROM TaxInvoice WHERE sample_code = @sample_code)
         BEGIN
-            RAISERROR('Удаление невозможно! Поле используется в других таблицах.', 16, 1);
+            RAISERROR('РЈРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ! РџРѕР»Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РґСЂСѓРіРёС… С‚Р°Р±Р»РёС†Р°С….', 16, 1);
         END
 
         DELETE FROM ProductSample
@@ -1240,7 +1240,7 @@ BEGIN
 	
 			        IF EXISTS (SELECT 1 FROM ProductProvider WHERE provider_address_code = @provider_address_code)
         BEGIN
-            RAISERROR('Удаление невозможно! Поле используется в других таблицах.', 16, 1);
+            RAISERROR('РЈРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ! РџРѕР»Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РґСЂСѓРіРёС… С‚Р°Р±Р»РёС†Р°С….', 16, 1);
         END
 
         DELETE FROM ProviderAddress
@@ -1278,7 +1278,7 @@ BEGIN
 			 IF EXISTS (SELECT 1 FROM ProductProvider WHERE provider_code = @provider_code)OR
            EXISTS (SELECT 1 FROM TaxInvoice WHERE provider_code = @provider_code)
         BEGIN
-            RAISERROR('Удаление невозможно! Поле используется в других таблицах.', 16, 1);
+            RAISERROR('РЈРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ! РџРѕР»Рµ РёСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РІ РґСЂСѓРіРёС… С‚Р°Р±Р»РёС†Р°С….', 16, 1);
         END
 
         DELETE FROM ProviderName
@@ -1403,7 +1403,7 @@ END
 GO
 
 
--- Обновление
+-- РћР±РЅРѕРІР»РµРЅРёРµ
 
 CREATE PROCEDURE UpdateCountry
     @country_code smallint,
@@ -1416,7 +1416,7 @@ BEGIN
 
 	        IF EXISTS (SELECT 1 FROM Countries WHERE country_name = @country_name)
         BEGIN
-            RAISERROR('Такая страна уже существует.', 16, 1);
+            RAISERROR('РўР°РєР°СЏ СЃС‚СЂР°РЅР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -1459,7 +1459,7 @@ BEGIN
     BEGIN TRY
 	        IF EXISTS (SELECT 1 FROM StoreAddress WHERE store_city = @store_city AND store_street = @store_street)
         BEGIN
-            RAISERROR('Такой адрес магазина уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ Р°РґСЂРµСЃ РјР°РіР°Р·РёРЅР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -1502,7 +1502,7 @@ BEGIN
 
 	        IF EXISTS (SELECT 1 FROM VAT WHERE vat_procent = @vat_procent)
         BEGIN
-            RAISERROR('Такой НДС уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ РќР”РЎ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -1543,7 +1543,7 @@ BEGIN
 
 	        IF EXISTS (SELECT 1 FROM ProductType WHERE product_type_name = @product_type_name)
         BEGIN
-            RAISERROR('Такой тип продукта уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ С‚РёРї РїСЂРѕРґСѓРєС‚Р° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -1586,7 +1586,7 @@ BEGIN
 
 	        IF EXISTS (SELECT 1 FROM ProductSample WHERE sample_name = @sample_name)
         BEGIN
-            RAISERROR('Такая проба уже существует.', 16, 1);
+            RAISERROR('РўР°РєР°СЏ РїСЂРѕР±Р° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -1629,7 +1629,7 @@ BEGIN
 
 	        IF EXISTS (SELECT 1 FROM ProviderAddress WHERE provider_city = @provider_city AND provider_street = @provider_street)
         BEGIN
-            RAISERROR('Такой адрес поставщика уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ Р°РґСЂРµСЃ РїРѕСЃС‚Р°РІС‰РёРєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -1672,7 +1672,7 @@ BEGIN
 
 	        IF EXISTS (SELECT 1 FROM ProviderName WHERE provider_name = @provider_name)
         BEGIN
-            RAISERROR('Такое имя поставщика уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕРµ РёРјСЏ РїРѕСЃС‚Р°РІС‰РёРєР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
         ELSE
         BEGIN
@@ -1725,7 +1725,7 @@ BEGIN
 
 		        IF EXISTS (SELECT 1 FROM TaxInvoice WHERE tax_invoice_number = @tax_invoice_number AND product_type_code = @product_type_code)
         BEGIN
-            RAISERROR('В этой накладной уже есть этот тип продукта.', 16, 1);
+            RAISERROR('Р’ СЌС‚РѕР№ РЅР°РєР»Р°РґРЅРѕР№ СѓР¶Рµ РµСЃС‚СЊ СЌС‚РѕС‚ С‚РёРї РїСЂРѕРґСѓРєС‚Р°.', 16, 1);
         END
         ELSE
 		BEGIN
@@ -1782,15 +1782,15 @@ BEGIN
     BEGIN TRY
 			IF EXISTS (SELECT 1 FROM ProductProvider WHERE fiscal_code = @fiscal_code)
         BEGIN
-            RAISERROR('Такой фискальный код уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ С„РёСЃРєР°Р»СЊРЅС‹Р№ РєРѕРґ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
 		ELSE IF EXISTS (SELECT 1 FROM ProductProvider WHERE phone_number = @phone_number)
         BEGIN
-            RAISERROR('Такой номер телефона уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅР° СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
 		ELSE IF EXISTS (SELECT 1 FROM ProductProvider WHERE payment_account = @payment_account)
         BEGIN
-            RAISERROR('Такой платёжный счёт уже существует.', 16, 1);
+            RAISERROR('РўР°РєРѕР№ РїР»Р°С‚С‘Р¶РЅС‹Р№ СЃС‡С‘С‚ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚.', 16, 1);
         END
 
         ELSE
@@ -1890,7 +1890,7 @@ BEGIN
     BEGIN TRY
 					IF NOT EXISTS (SELECT 1 FROM UserData WHERE UserLogin = @userLogin)
         BEGIN
-            RAISERROR('Пользователя с таким логином не существует!', 16, 1);
+            RAISERROR('РџРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!', 16, 1);
         END
 
         UPDATE UserData
@@ -1928,7 +1928,7 @@ BEGIN
     BEGIN TRY
 		IF NOT EXISTS (SELECT 1 FROM UserData WHERE UserLogin = @userLogin)
         BEGIN
-            RAISERROR('Пользователя с таким логином не существует!', 16, 1);
+            RAISERROR('РџРѕР»СЊР·РѕРІР°С‚РµР»СЏ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!', 16, 1);
         END
 
 		DELETE FROM UserData 
@@ -1972,7 +1972,7 @@ BEGIN
 
         IF EXISTS (SELECT 1 FROM UserData WHERE userLogin = @userLogin)
         BEGIN
-            RAISERROR('Пользователь с таким логином уже существует!', 16, 1);
+            RAISERROR('РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ СЃ С‚Р°РєРёРј Р»РѕРіРёРЅРѕРј СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!', 16, 1);
         END
         ELSE
         BEGIN
@@ -2028,16 +2028,16 @@ AS
 BEGIN
     BEGIN TRY
 
-        -- Переводим базу данных в однопользовательский режим с немедленным откатом транзакций
+        -- РџРµСЂРµРІРѕРґРёРј Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РІ РѕРґРЅРѕРїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ СЂРµР¶РёРј СЃ РЅРµРјРµРґР»РµРЅРЅС‹Рј РѕС‚РєР°С‚РѕРј С‚СЂР°РЅР·Р°РєС†РёР№
         ALTER DATABASE JEWERLYBD SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
         
-        -- Восстанавливаем базу данных из резервной копии
+        -- Р’РѕСЃСЃС‚Р°РЅР°РІР»РёРІР°РµРј Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РёР· СЂРµР·РµСЂРІРЅРѕР№ РєРѕРїРёРё
 
         RESTORE DATABASE JEWERLYBD 
         FROM DISK = @FilePath 
         WITH REPLACE, FILE = 1, NOUNLOAD, STATS = 5;
         
-        -- Переводим базу данных обратно в многопользовательский режим
+        -- РџРµСЂРµРІРѕРґРёРј Р±Р°Р·Сѓ РґР°РЅРЅС‹С… РѕР±СЂР°С‚РЅРѕ РІ РјРЅРѕРіРѕРїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёР№ СЂРµР¶РёРј
         ALTER DATABASE JEWERLYBD SET MULTI_USER;
 
     END TRY
