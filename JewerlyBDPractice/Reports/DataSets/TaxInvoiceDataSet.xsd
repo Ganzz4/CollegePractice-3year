@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TaxInvoiceDataSet" targetNamespace="http://tempuri.org/TaxInvoiceDataSet.xsd" xmlns:mstns="http://tempuri.org/TaxInvoiceDataSet.xsd" xmlns="http://tempuri.org/TaxInvoiceDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JEWERLYBDConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JEWERLYBDConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Lab11.Properties.Settings.GlobalReference.Default.JEWERLYBDConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TaxInvoiceReportViewTableAdapter" GeneratorDataComponentClassName="TaxInvoiceReportViewTableAdapter" Name="TaxInvoiceReportView" UserDataComponentName="TaxInvoiceReportViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JEWERLYBDConnectionString (Settings)" DbObjectName="JEWERLYBD.dbo.TaxInvoiceReportView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        tax_invoice_number, delivery_date, provider_name, product_type_name, sample_name, quantity, weight_grams, price_per_gramm, vat_procent, price_no_NDS, price_with_NDS
+FROM            TaxInvoiceReportView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="tax_invoice_number" DataSetColumn="tax_invoice_number" />
+              <Mapping SourceColumn="delivery_date" DataSetColumn="delivery_date" />
+              <Mapping SourceColumn="provider_name" DataSetColumn="provider_name" />
+              <Mapping SourceColumn="product_type_name" DataSetColumn="product_type_name" />
+              <Mapping SourceColumn="sample_name" DataSetColumn="sample_name" />
+              <Mapping SourceColumn="quantity" DataSetColumn="quantity" />
+              <Mapping SourceColumn="weight_grams" DataSetColumn="weight_grams" />
+              <Mapping SourceColumn="price_per_gramm" DataSetColumn="price_per_gramm" />
+              <Mapping SourceColumn="vat_procent" DataSetColumn="vat_procent" />
+              <Mapping SourceColumn="price_no_NDS" DataSetColumn="price_no_NDS" />
+              <Mapping SourceColumn="price_with_NDS" DataSetColumn="price_with_NDS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TaxInvoiceDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="TaxInvoiceDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="TaxInvoiceDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TaxInvoiceReportView" msprop:Generator_RowClassName="TaxInvoiceReportViewRow" msprop:Generator_RowEvHandlerName="TaxInvoiceReportViewRowChangeEventHandler" msprop:Generator_RowDeletedName="TaxInvoiceReportViewRowDeleted" msprop:Generator_RowDeletingName="TaxInvoiceReportViewRowDeleting" msprop:Generator_RowEvArgName="TaxInvoiceReportViewRowChangeEvent" msprop:Generator_TablePropName="TaxInvoiceReportView" msprop:Generator_RowChangedName="TaxInvoiceReportViewRowChanged" msprop:Generator_UserTableName="TaxInvoiceReportView" msprop:Generator_RowChangingName="TaxInvoiceReportViewRowChanging" msprop:Generator_TableClassName="TaxInvoiceReportViewDataTable" msprop:Generator_TableVarName="tableTaxInvoiceReportView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tax_invoice_number" msprop:Generator_UserColumnName="tax_invoice_number" msprop:Generator_ColumnPropNameInTable="tax_invoice_numberColumn" msprop:Generator_ColumnPropNameInRow="tax_invoice_number" msprop:Generator_ColumnVarNameInTable="columntax_invoice_number" type="xs:int" />
+              <xs:element name="delivery_date" msprop:Generator_UserColumnName="delivery_date" msprop:Generator_ColumnPropNameInTable="delivery_dateColumn" msprop:Generator_ColumnPropNameInRow="delivery_date" msprop:Generator_ColumnVarNameInTable="columndelivery_date" type="xs:dateTime" />
+              <xs:element name="provider_name" msprop:Generator_UserColumnName="provider_name" msprop:Generator_ColumnPropNameInTable="provider_nameColumn" msprop:Generator_ColumnPropNameInRow="provider_name" msprop:Generator_ColumnVarNameInTable="columnprovider_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_type_name" msprop:Generator_UserColumnName="product_type_name" msprop:Generator_ColumnPropNameInTable="product_type_nameColumn" msprop:Generator_ColumnPropNameInRow="product_type_name" msprop:Generator_ColumnVarNameInTable="columnproduct_type_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sample_name" msprop:Generator_UserColumnName="sample_name" msprop:Generator_ColumnPropNameInTable="sample_nameColumn" msprop:Generator_ColumnPropNameInRow="sample_name" msprop:Generator_ColumnVarNameInTable="columnsample_name" type="xs:short" minOccurs="0" />
+              <xs:element name="quantity" msprop:Generator_UserColumnName="quantity" msprop:Generator_ColumnPropNameInTable="quantityColumn" msprop:Generator_ColumnPropNameInRow="quantity" msprop:Generator_ColumnVarNameInTable="columnquantity" type="xs:short" />
+              <xs:element name="weight_grams" msprop:Generator_UserColumnName="weight_grams" msprop:Generator_ColumnPropNameInTable="weight_gramsColumn" msprop:Generator_ColumnPropNameInRow="weight_grams" msprop:Generator_ColumnVarNameInTable="columnweight_grams" type="xs:float" />
+              <xs:element name="price_per_gramm" msprop:Generator_UserColumnName="price_per_gramm" msprop:Generator_ColumnPropNameInTable="price_per_grammColumn" msprop:Generator_ColumnPropNameInRow="price_per_gramm" msprop:Generator_ColumnVarNameInTable="columnprice_per_gramm" type="xs:float" />
+              <xs:element name="vat_procent" msprop:Generator_UserColumnName="vat_procent" msprop:Generator_ColumnPropNameInTable="vat_procentColumn" msprop:Generator_ColumnPropNameInRow="vat_procent" msprop:Generator_ColumnVarNameInTable="columnvat_procent" type="xs:short" minOccurs="0" />
+              <xs:element name="price_no_NDS" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="price_no_NDS" msprop:Generator_ColumnPropNameInTable="price_no_NDSColumn" msprop:Generator_ColumnVarNameInTable="columnprice_no_NDS" msprop:Generator_UserColumnName="price_no_NDS" type="xs:double" minOccurs="0" />
+              <xs:element name="price_with_NDS" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="price_with_NDS" msprop:Generator_ColumnPropNameInTable="price_with_NDSColumn" msprop:Generator_ColumnVarNameInTable="columnprice_with_NDS" msprop:Generator_UserColumnName="price_with_NDS" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProductProviderDataSet" targetNamespace="http://tempuri.org/ProductProviderDataSet.xsd" xmlns:mstns="http://tempuri.org/ProductProviderDataSet.xsd" xmlns="http://tempuri.org/ProductProviderDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JEWERLYBDConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JEWERLYBDConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Lab11.Properties.Settings.GlobalReference.Default.JEWERLYBDConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProductProviderViewReportTableAdapter" GeneratorDataComponentClassName="ProductProviderViewReportTableAdapter" Name="ProductProviderViewReport" UserDataComponentName="ProductProviderViewReportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JEWERLYBDConnectionString (Settings)" DbObjectName="JEWERLYBD.dbo.ProductProviderViewReport" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT N, provider_name, fiscal_code, country_name, provider_city, provider_street, phone_number, payment_account FROM ProductProviderViewReport</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="N" DataSetColumn="N" />
+              <Mapping SourceColumn="provider_name" DataSetColumn="provider_name" />
+              <Mapping SourceColumn="fiscal_code" DataSetColumn="fiscal_code" />
+              <Mapping SourceColumn="provider_city" DataSetColumn="provider_city" />
+              <Mapping SourceColumn="provider_street" DataSetColumn="provider_street" />
+              <Mapping SourceColumn="phone_number" DataSetColumn="phone_number" />
+              <Mapping SourceColumn="payment_account" DataSetColumn="payment_account" />
+              <Mapping SourceColumn="country_name" DataSetColumn="country_name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ProductProviderDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ProductProviderDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ProductProviderDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ProductProviderViewReport" msprop:Generator_RowClassName="ProductProviderViewReportRow" msprop:Generator_RowEvHandlerName="ProductProviderViewReportRowChangeEventHandler" msprop:Generator_RowDeletedName="ProductProviderViewReportRowDeleted" msprop:Generator_RowDeletingName="ProductProviderViewReportRowDeleting" msprop:Generator_RowEvArgName="ProductProviderViewReportRowChangeEvent" msprop:Generator_TablePropName="ProductProviderViewReport" msprop:Generator_RowChangedName="ProductProviderViewReportRowChanged" msprop:Generator_UserTableName="ProductProviderViewReport" msprop:Generator_RowChangingName="ProductProviderViewReportRowChanging" msprop:Generator_TableClassName="ProductProviderViewReportDataTable" msprop:Generator_TableVarName="tableProductProviderViewReport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="N" msprop:Generator_UserColumnName="N" msprop:Generator_ColumnPropNameInTable="NColumn" msprop:Generator_ColumnPropNameInRow="N" msprop:Generator_ColumnVarNameInTable="columnN" type="xs:long" minOccurs="0" />
+              <xs:element name="provider_name" msprop:Generator_UserColumnName="provider_name" msprop:Generator_ColumnPropNameInTable="provider_nameColumn" msprop:Generator_ColumnPropNameInRow="provider_name" msprop:Generator_ColumnVarNameInTable="columnprovider_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fiscal_code" msprop:Generator_UserColumnName="fiscal_code" msprop:Generator_ColumnPropNameInTable="fiscal_codeColumn" msprop:Generator_ColumnPropNameInRow="fiscal_code" msprop:Generator_ColumnVarNameInTable="columnfiscal_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="provider_city" msprop:Generator_UserColumnName="provider_city" msprop:Generator_ColumnPropNameInTable="provider_cityColumn" msprop:Generator_ColumnPropNameInRow="provider_city" msprop:Generator_ColumnVarNameInTable="columnprovider_city">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="provider_street" msprop:Generator_UserColumnName="provider_street" msprop:Generator_ColumnPropNameInTable="provider_streetColumn" msprop:Generator_ColumnPropNameInRow="provider_street" msprop:Generator_ColumnVarNameInTable="columnprovider_street">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="phone_number" msprop:Generator_UserColumnName="phone_number" msprop:Generator_ColumnPropNameInTable="phone_numberColumn" msprop:Generator_ColumnPropNameInRow="phone_number" msprop:Generator_ColumnVarNameInTable="columnphone_number" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="payment_account" msprop:Generator_UserColumnName="payment_account" msprop:Generator_ColumnPropNameInTable="payment_accountColumn" msprop:Generator_ColumnPropNameInRow="payment_account" msprop:Generator_ColumnVarNameInTable="columnpayment_account" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="country_name" msprop:Generator_ColumnPropNameInRow="country_name" msprop:Generator_ColumnPropNameInTable="country_nameColumn" msprop:Generator_ColumnVarNameInTable="columncountry_name" msprop:Generator_UserColumnName="country_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

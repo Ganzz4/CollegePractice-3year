@@ -1,0 +1,174 @@
+﻿<Window x:Class="Lab11.AddNewInfoForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Lab11"
+        mc:Ignorable="d"
+        Title="Добавить информацию" Height="700" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Icons/AddIcon.png">
+    <Grid Background="#e0e1dd">
+
+        <Border Height="80" VerticalAlignment="Top" CornerRadius="0 0 120 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#BF953F" Offset="1" />
+                    <GradientStop Color="#AA771C" Offset="0" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <StackPanel>
+            <Grid Height="100px" VerticalAlignment="Center">
+                <TextBlock Text="Добавление информации"
+                           FontSize="36" 
+                           FontWeight="Bold" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="0 0 0 20" />
+            </Grid>
+
+            <ComboBox
+                FontSize="18px"
+                HorizontalAlignment="Center"
+                 Margin="0 0 0 20"
+                Width="200"
+                x:Name="mainComboBox"
+                SelectionChanged="mainComboBox_SelectionChanged"
+                >
+                <ComboBoxItem Content="Выберите опцию" IsSelected="True" />
+                <ComboBoxItem x:Name="Country" Content="Страна" />
+                <ComboBoxItem x:Name="StoreAddress" Content="Адрес магазина" />
+                <ComboBoxItem x:Name="VAT" Content="НДС" />
+                <ComboBoxItem x:Name="ProductType" Content="Тип изделия" />
+                <ComboBoxItem x:Name="ProductSample" Content="Проба" />
+                <ComboBoxItem x:Name="ProviderName" Content="Название поставщика" />
+                <ComboBoxItem x:Name="ProviderAddress" Content="Адрес поставщика" />
+                <ComboBoxItem x:Name="TaxInvoice" Content="Накладная" />
+                <ComboBoxItem x:Name="ProductProvider" Content="Поставщик" />
+                <ComboBoxItem x:Name="Cheque" Content="Чек" />
+            </ComboBox>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridValue1" VerticalAlignment="Center" Visibility="Collapsed" Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockValue1" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <TextBox x:Name="value1" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridValue2" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockValue2" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <TextBox x:Name="value2" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridValue3" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockValue3" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <TextBox x:Name="value3" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridValue4" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockValue4" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <TextBox x:Name="value4" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridValue5" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockValue5" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <TextBox x:Name="value5" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridComboBox1" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockComboValue1" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <ComboBox x:Name="comboBox1" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridComboBox2" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockComboValue2" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <ComboBox x:Name="comboBox2" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridComboBox3" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockComboValue3" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <ComboBox x:Name="comboBox3" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+            
+            <Grid HorizontalAlignment="Center" Grid.Row="0" x:Name="gridComboBox4" VerticalAlignment="Center" Visibility="Collapsed"  Margin="0 5 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="textBlockComboValue4" 
+                       Grid.Column="0"
+                       FontSize="18"
+                       VerticalAlignment="Center"
+                       />
+                <ComboBox x:Name="comboBox4" FontSize="18"  Grid.Column="1" Width="150px" Margin="5 0 10 0"/>
+            </Grid>
+
+            <Grid HorizontalAlignment="Center" Margin="0 20 0 0" x:Name="buttonAddNew" VerticalAlignment="Center">
+                <Button x:Name="addInfo" Width="100px" BorderBrush="Goldenrod"  Background="DarkGoldenrod" Margin="5 0 10 0" Content="Ок" Click="addInfo_Click" />
+            </Grid>
+        </StackPanel>
+    </Grid>
+    
+</Window>

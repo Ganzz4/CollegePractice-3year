@@ -1,0 +1,126 @@
+﻿<Window x:Class="Lab11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Lab11"
+        mc:Ignorable="d"
+     Title="Ювелирный магазин" Height="1080" Width="1800" Icon="/Icons/MainIcon.png"
+       WindowStartupLocation="CenterScreen" WindowState="Maximized" >
+
+    <Grid Background="#e0e1dd">
+        <Border Height="100" VerticalAlignment="Top" CornerRadius="0 0 120 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#BF953F" Offset="1" />
+                    <GradientStop Color="#AA771C" Offset="0" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <StackPanel>
+            <Grid Height="100px" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBlock Text="Ювелирный магазин" FontSize="44" FontWeight="Bold" VerticalAlignment="Center" Margin="0 0 0 0" />
+            </Grid>
+
+            <Menu x:Name="mainMenu" FontSize="24px" HorizontalAlignment="Center" Margin="0 20 0 20">
+
+                <Menu.Resources>
+                    <Style TargetType="MenuItem" x:Key="MenuItemStyle">
+                        <Setter Property="Padding" Value="20 0 20 0"/>
+                        <Setter Property="HeaderTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Grid Width="Auto" Height="Auto">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <materialDesign:PackIcon Width="40" Height="40" Kind="{Binding RelativeSource={RelativeSource AncestorType=MenuItem}, Path=Tag}" Margin="5"/>
+                                        <ContentPresenter Grid.Column="1" Content="{TemplateBinding Content}" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Menu.Resources>
+
+                <MenuItem Header="Вывод" x:Name="menu" Style="{StaticResource MenuItemStyle}" Tag="Show" MenuItem.Click="Menu_Click">
+                    <MenuItem x:Name="CountriesView" Header="Список стран" />
+                    <MenuItem x:Name="StoreAddressView" Header="Адрес магазина" />
+                    <MenuItem x:Name="VATView" Header="НДС" />
+                    <MenuItem x:Name="ProductTypeView" Header="Типы изделий" />
+                    <MenuItem x:Name="ProductSampleView" Header="Пробы"/>
+                    <MenuItem x:Name="ProviderAddressView" Header="Адрес поставщика" />
+                    <MenuItem x:Name="ProviderNameView" Header="Название поставщика" />
+                    <MenuItem x:Name="ProductProviderView" Header="Полная информация об поставщике" />
+                    <MenuItem x:Name="TaxInvoiceView" Header="Налоговая накладная" />
+                    <MenuItem x:Name="ChequeView" Header="Чек" />
+                    <MenuItem x:Name="InfoForClientView" Header="Магазин" />
+                </MenuItem>
+
+                <MenuItem Header="Добавить" x:Name="addInfo" Style="{StaticResource MenuItemStyle}" Tag="AddCircle" Click="addInfo_Click"/>
+                <MenuItem Header="Удалить"  x:Name="deleteInfo" Style="{StaticResource MenuItemStyle}" Tag="Delete" Click="deleteInfo_Click"/>
+                <MenuItem Header="Редактировать"  x:Name="redact" Style="{StaticResource MenuItemStyle}" Tag="Edit" Click="redact_Click"/>
+
+                <MenuItem Header="Отчёты"  x:Name="openReport" Style="{StaticResource MenuItemStyle}" Tag="ReportBoxOutline" Click="openReport_Click">
+                    <MenuItem Header="Чек"/>
+                    <MenuItem Header="Поставщик"/>
+                    <MenuItem Header="Накладная"/>
+                
+                </MenuItem>
+
+                <MenuItem Header="Фильтр"  x:Name="menuFilter" Style="{StaticResource MenuItemStyle}" Tag="Filter" Click="menuFilter_Click"/>
+
+                <MenuItem x:Name="findMenuItem" Padding="20 0 20 0" Width="250">
+                    <MenuItem.Template>
+                        <ControlTemplate TargetType="MenuItem">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="50" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox x:Name="textBoxFind" Grid.Column="0" BorderThickness="0" Margin="5" materialDesign:HintAssist.Hint="Поле для поиска"/>
+                                <materialDesign:PackIcon Kind="FindInPage" Width="40" Height="40"  Grid.Column="1" Cursor="Hand" MouseLeftButtonDown="Image_MouseLeftButtonDown" />
+                            </Grid>
+                        </ControlTemplate>
+                    </MenuItem.Template>
+                </MenuItem>
+                <MenuItem x:Name="refreshInfo" Style="{StaticResource MenuItemStyle}" Tag="Refresh" Click="refreshInfo_Click"/>
+                <MenuItem Header="Админ"  x:Name="adminPanel" Style="{StaticResource MenuItemStyle}" Tag="Administrator" Click="adminPanel_Click"/>
+            </Menu>
+
+            <WrapPanel x:Name="FilterPanel" Orientation="Horizontal" VerticalAlignment="Center" Margin="10 10 10 10" Visibility="Collapsed">
+                <TextBox x:Name="textBox1"  FontSize="18" Width="200px" Margin="10"/>
+                <TextBox x:Name="textBox2"  FontSize="18" Width="200px" Margin="10"/>
+                <ComboBox x:Name="comboBoxFilter1"  FontSize="18" Width="200px" Margin="10" />
+                <ComboBox x:Name="comboBoxFilter2"  FontSize="18" Width="200px" Margin="10" />
+                <ComboBox x:Name="comboBoxFilter3"  FontSize="18" Width="200px" Margin="10" />
+                <Grid Width="200">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="textBoxMin" Grid.Column="0" Margin="10"/>
+                    <TextBox x:Name="textBoxMax" Grid.Column="1" Margin="10"/>
+                </Grid>
+                <Button x:Name="filterDataOk" Style="{StaticResource MaterialDesignRaisedButton}" BorderBrush="Goldenrod" Content="Ок" Click="filterDataOk_Click" Background="DarkGoldenrod"  FontSize="18" Width="200px" Margin="10"/>
+                <Button x:Name="filterDataReset" Content="Сброс" BorderBrush="Goldenrod" Click="filterDataReset_Click" Background="DarkGoldenrod"  FontSize="18" Width="200px" Margin="10"/>
+            </WrapPanel>
+            <DataGrid 
+                x:Name="dataGrid"
+                Margin="0 0 0 20px"
+                Height="700"
+                ColumnWidth = "*" 
+                IsReadOnly="True" 
+                AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"
+                Loaded="dataGrid_Loaded"
+                Style="{StaticResource MaterialDesignDataGrid}"
+                />
+                <!--BorderBrush="Gray"-->
+
+
+        </StackPanel>
+    </Grid>
+</Window>

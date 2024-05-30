@@ -1,0 +1,63 @@
+﻿<Window x:Class="Lab11.UpdateInfoForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Lab11"
+        mc:Ignorable="d"
+        Icon="/Icons/UpdateFormIcon.png"
+        Title="Обновление информации" 
+        Height="1010" 
+        Width="1800"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized">
+    <Grid Background="#e0e1dd">
+        <Border Height="100" VerticalAlignment="Top" CornerRadius="0 0 120 0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0.1,0" EndPoint="0.9,1">
+                    <GradientStop Color="#BF953F" Offset="1" />
+                    <GradientStop Color="#AA771C" Offset="0" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <StackPanel>
+            <Grid Height="100px" VerticalAlignment="Center">
+                <TextBlock Text="Обновление информации"
+                           FontSize="36" 
+                           FontWeight="Bold" 
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Margin="20 0 0 0" />
+            </Grid>
+
+            <Grid x:Name="redactGrid" Visibility="Collapsed" Margin="5">
+                <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5 5 5 5">
+                    <TextBox x:Name="value1" FontSize="18" Width="200px" Margin="10"/>
+                    <TextBox x:Name="value2" FontSize="18" Width="200px" Margin="10"/>
+                    <TextBox x:Name="value3" FontSize="18" Width="200px" Margin="10"/>
+                    <TextBox x:Name="value4" FontSize="18" Width="200px" Margin="10"/>
+                    <TextBox x:Name="value5" FontSize="18" Width="200px" Margin="10"/>
+                    <ComboBox x:Name="comboBox1" FontSize="18" Width="200px" Margin="10"/>
+                    <ComboBox x:Name="comboBox2" FontSize="18" Width="200px" Margin="10"/>
+                    <ComboBox x:Name="comboBox3" FontSize="18" Width="200px" Margin="10"/>
+                    <ComboBox x:Name="comboBox4" FontSize="18" Width="200px" Margin="10" />
+                    <Button x:Name="updateInfo" Width="100px" Margin="10" BorderBrush="Goldenrod" Background="DarkGoldenrod" Content="Ок" Click="updateInfo_Click" />
+
+                </WrapPanel>
+            </Grid>
+            
+            <DataGrid 
+                x:Name="dataGrid"
+                Margin="0 0 0 20px"
+                Height="890px"
+                ColumnWidth = "*" 
+                IsReadOnly="True" 
+                AutoGeneratingColumn="dataGrid_AutoGeneratingColumn"
+                SelectionChanged="dataGrid_SelectionChanged"
+                Loaded="dataGrid_Loaded"
+                />
+            
+        </StackPanel>
+    </Grid>
+</Window>

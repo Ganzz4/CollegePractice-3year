@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ChequeReportDataSet" targetNamespace="http://tempuri.org/ChequeReportDataSet.xsd" xmlns:mstns="http://tempuri.org/ChequeReportDataSet.xsd" xmlns="http://tempuri.org/ChequeReportDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JEWERLYBDConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JEWERLYBDConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Lab11.Properties.Settings.GlobalReference.Default.JEWERLYBDConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ChequeReportViewTableAdapter" GeneratorDataComponentClassName="ChequeReportViewTableAdapter" Name="ChequeReportView" UserDataComponentName="ChequeReportViewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JEWERLYBDConnectionString (Settings)" DbObjectName="JEWERLYBD.dbo.ChequeReportView" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        country_name, date_and_time_of_sale, store_city, store_street, product_type_name, weight_grams, price_per_gram, discount_percentage, vat_procent, price_no_NDS, price_discount_no_NDS, price_with_NDS, 
+                         price_discount_with_NDS
+FROM            ChequeReportView</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="country_name" DataSetColumn="country_name" />
+              <Mapping SourceColumn="date_and_time_of_sale" DataSetColumn="date_and_time_of_sale" />
+              <Mapping SourceColumn="store_city" DataSetColumn="store_city" />
+              <Mapping SourceColumn="store_street" DataSetColumn="store_street" />
+              <Mapping SourceColumn="product_type_name" DataSetColumn="product_type_name" />
+              <Mapping SourceColumn="weight_grams" DataSetColumn="weight_grams" />
+              <Mapping SourceColumn="price_per_gram" DataSetColumn="price_per_gram" />
+              <Mapping SourceColumn="discount_percentage" DataSetColumn="discount_percentage" />
+              <Mapping SourceColumn="vat_procent" DataSetColumn="vat_procent" />
+              <Mapping SourceColumn="price_no_NDS" DataSetColumn="price_no_NDS" />
+              <Mapping SourceColumn="price_discount_no_NDS" DataSetColumn="price_discount_no_NDS" />
+              <Mapping SourceColumn="price_with_NDS" DataSetColumn="price_with_NDS" />
+              <Mapping SourceColumn="price_discount_with_NDS" DataSetColumn="price_discount_with_NDS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ChequeReportDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ChequeReportDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ChequeReportDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ChequeReportView" msprop:Generator_RowEvHandlerName="ChequeReportViewRowChangeEventHandler" msprop:Generator_RowDeletedName="ChequeReportViewRowDeleted" msprop:Generator_RowDeletingName="ChequeReportViewRowDeleting" msprop:Generator_RowEvArgName="ChequeReportViewRowChangeEvent" msprop:Generator_TablePropName="ChequeReportView" msprop:Generator_RowChangedName="ChequeReportViewRowChanged" msprop:Generator_UserTableName="ChequeReportView" msprop:Generator_RowChangingName="ChequeReportViewRowChanging" msprop:Generator_RowClassName="ChequeReportViewRow" msprop:Generator_TableClassName="ChequeReportViewDataTable" msprop:Generator_TableVarName="tableChequeReportView">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="country_name" msprop:Generator_UserColumnName="country_name" msprop:Generator_ColumnPropNameInTable="country_nameColumn" msprop:Generator_ColumnPropNameInRow="country_name" msprop:Generator_ColumnVarNameInTable="columncountry_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date_and_time_of_sale" msprop:Generator_ColumnPropNameInRow="date_and_time_of_sale" msprop:Generator_ColumnPropNameInTable="date_and_time_of_saleColumn" msprop:Generator_ColumnVarNameInTable="columndate_and_time_of_sale" msprop:Generator_UserColumnName="date_and_time_of_sale" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="store_city" msprop:Generator_ColumnPropNameInRow="store_city" msprop:Generator_ColumnPropNameInTable="store_cityColumn" msprop:Generator_ColumnVarNameInTable="columnstore_city" msprop:Generator_UserColumnName="store_city">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="store_street" msprop:Generator_ColumnPropNameInRow="store_street" msprop:Generator_ColumnPropNameInTable="store_streetColumn" msprop:Generator_ColumnVarNameInTable="columnstore_street" msprop:Generator_UserColumnName="store_street">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="product_type_name" msprop:Generator_ColumnPropNameInRow="product_type_name" msprop:Generator_ColumnPropNameInTable="product_type_nameColumn" msprop:Generator_ColumnVarNameInTable="columnproduct_type_name" msprop:Generator_UserColumnName="product_type_name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="weight_grams" msprop:Generator_ColumnPropNameInRow="weight_grams" msprop:Generator_ColumnPropNameInTable="weight_gramsColumn" msprop:Generator_ColumnVarNameInTable="columnweight_grams" msprop:Generator_UserColumnName="weight_grams" type="xs:float" />
+              <xs:element name="price_per_gram" msprop:Generator_ColumnPropNameInRow="price_per_gram" msprop:Generator_ColumnPropNameInTable="price_per_gramColumn" msprop:Generator_ColumnVarNameInTable="columnprice_per_gram" msprop:Generator_UserColumnName="price_per_gram" type="xs:float" />
+              <xs:element name="discount_percentage" msprop:Generator_ColumnPropNameInRow="discount_percentage" msprop:Generator_ColumnPropNameInTable="discount_percentageColumn" msprop:Generator_ColumnVarNameInTable="columndiscount_percentage" msprop:Generator_UserColumnName="discount_percentage" type="xs:short" minOccurs="0" />
+              <xs:element name="vat_procent" msprop:Generator_ColumnPropNameInRow="vat_procent" msprop:Generator_ColumnPropNameInTable="vat_procentColumn" msprop:Generator_ColumnVarNameInTable="columnvat_procent" msprop:Generator_UserColumnName="vat_procent" type="xs:short" minOccurs="0" />
+              <xs:element name="price_no_NDS" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="price_no_NDS" msprop:Generator_ColumnPropNameInTable="price_no_NDSColumn" msprop:Generator_ColumnVarNameInTable="columnprice_no_NDS" msprop:Generator_UserColumnName="price_no_NDS" type="xs:double" minOccurs="0" />
+              <xs:element name="price_discount_no_NDS" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="price_discount_no_NDS" msprop:Generator_ColumnPropNameInTable="price_discount_no_NDSColumn" msprop:Generator_ColumnVarNameInTable="columnprice_discount_no_NDS" msprop:Generator_UserColumnName="price_discount_no_NDS" type="xs:double" minOccurs="0" />
+              <xs:element name="price_with_NDS" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="price_with_NDS" msprop:Generator_ColumnPropNameInTable="price_with_NDSColumn" msprop:Generator_ColumnVarNameInTable="columnprice_with_NDS" msprop:Generator_UserColumnName="price_with_NDS" type="xs:double" minOccurs="0" />
+              <xs:element name="price_discount_with_NDS" msdata:ReadOnly="true" msprop:Generator_ColumnPropNameInRow="price_discount_with_NDS" msprop:Generator_ColumnPropNameInTable="price_discount_with_NDSColumn" msprop:Generator_ColumnVarNameInTable="columnprice_discount_with_NDS" msprop:Generator_UserColumnName="price_discount_with_NDS" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
