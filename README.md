@@ -1,5 +1,5 @@
 
-Practice on the topic 'Accounting for jewelry'.
+Pet-project on the topic 'Accounting for jewelry'.
 This project used C#, WPF and MS SQL.
 
 Normalized relational table:
